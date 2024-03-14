@@ -1,0 +1,29 @@
+.linkDesign {
+    height: 4em;
+    width: 6em;
+
+    background-color: aqua;
+    color:black;
+    font-weight: bold;
+
+    box-shadow:1px 3px 6px 1px rgb(82, 82, 82) ;
+
+    border-radius: 1em;
+
+    display:inherit;
+    justify-content: center;
+    align-items: inherit;
+
+    transition:0.5s;
+}
+
+.linkDesign:hover {
+
+    transition: 0.5s;
+    transform: translateY(-.2em);
+
+    background-color: rgb(0, 255, 200);
+
+
+    box-shadow:0px 1px 4px .6px rgb(82, 82, 82) ;
+}
