@@ -1,7 +1,7 @@
 import './apitest.css'
 import { useState, useEffect } from "react";
 import { ApiCard } from "../../common/apiCard/apiCard";
-import { Getcharacters } from "../../services/apiCalls";
+import { getCharacters } from "../../services/apiCalls";
 
 export const Apitest = () => {
 
@@ -11,19 +11,41 @@ export const Apitest = () => {
         if (characters.length === 0) {
             const bringData = async () => {
                 try {
-                    const fetched = await Getcharacters()
+                    const fetched = await getCharacters()
                     setcharacters(fetched)
                 } catch (error) {
                     console.log(error);
                 }
             }
-        } else {
-            <div>No characters called from Rick&Morty's API</div>
+            bringData()
         }
-        bringData()
-    },[characters])
+    }, [characters])
+
+    const clickedCharacter = (person) => {
+        console.log(person)
+      }
 
     return (
-        <ApiCard />
+        <>
+            {
+                characters.length > 0
+                    ? <div className="apitestDesign">
+                        {
+                            characters.slice(0, 10).map((person) => {
+                                return (
+                                    <ApiCard
+                                        key={person.id}
+                                        name={person.name}
+                                        species={person.species}
+                                        image={person.image}
+                                        clickFunction={()=>clickedCharacter(person)}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                    : <div className="apitestDesign">The characters are coming!</div>
+            }
+        </>
     )
 }

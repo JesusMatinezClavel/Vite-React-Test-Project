@@ -1,11 +1,11 @@
 import './apiCard.css'
 
-export const ApiCard = ({name,species,image}) => {
+export const ApiCard = ({key, name,species,image,clickFunction}) => {
     return(
-        <div className="apiCardDesign">
-            <div>{name}</div>
-            <div>{species}</div>
+        <div className="apiCardDesign" onClick={clickFunction}>
             <div><img className='characterImg' src={image} alt={name}/></div>
+            <div className='personData'>{name}</div>
+            <div className='personData'>{species}</div>
         </div>
     )
 }
