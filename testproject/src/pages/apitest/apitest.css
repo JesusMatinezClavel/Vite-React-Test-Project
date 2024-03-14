@@ -2,5 +2,9 @@
     height: 70vh;
     width: 100vw;
 
-    background-color: rgb(97, 84, 168);
+    background-color: rgb(159, 149, 218);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
