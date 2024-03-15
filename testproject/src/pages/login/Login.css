@@ -1,0 +1,25 @@
+.loginDesign {
+    height: 70vh;
+    width: 100vw;
+
+    background-color: rgb(189, 92, 108);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginButton {
+    height: 2em;
+    width: 4em;
+    background-color: blueviolet;
+    border-radius: .5em;
+
+    transition: 0.4 ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(159, 88, 224);
+    }
+}

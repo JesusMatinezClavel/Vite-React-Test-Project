@@ -1,0 +1,11 @@
+.registerDesign {
+    height: 70vh;
+    width: 100vw;
+
+    background-color: rgb(102, 92, 189);
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
