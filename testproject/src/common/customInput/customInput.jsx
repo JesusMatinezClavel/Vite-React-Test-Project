@@ -1,16 +1,17 @@
 import './customInput.css'
 
-export const CustomInput = ({ design, type, name, value, placeholder, functionChange }) => {
+export const CustomInput = ({ className, type, name, value, placeholder, functionClick, functionChange, functionBlur }) => {
     return (
-        <div className="inputDesign">
             <input
-                className={design}
-                type={type}
-                name={name}
-                value={value}
-                placeholder={placeholder}
-                onChange={functionChange}
+            className={className}
+            type={type}
+            name={name}
+            value={value}
+            placeholder={placeholder}
+            // emit, recibimos la funcion por props que está en el padre!
+            onClick={functionClick}
+            onChange={functionChange}
+            onBlur={functionBlur}
             />
-        </div>
     )
 }

@@ -10,9 +10,9 @@ export const Header = () => {
                 token
                     ? (
                         <div className='menu'>
-                        <CustomLink title={"apitest"} destination={"/apitest"} />,
-                        <CustomLink title={"counters"} destination={"/counters"} />,
-                        <CustomLink title={"login"} destination={"/login"} />,
+                        <CustomLink title={"apitest"} destination={"/apitest"} />
+                        <CustomLink title={"counters"} destination={"/counters"} />
+                        <CustomLink title={"login"} destination={"/login"} />
                         <CustomLink title={"register"} destination={"/register"} />
                         </div>
                     )

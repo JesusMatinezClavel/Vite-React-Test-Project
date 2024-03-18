@@ -1,5 +1,5 @@
 .homeDesign {
-    height: 70vh;
+    height: 80vh;
     width: 100vw;
 
     background-color: bisque;
@@ -14,9 +14,10 @@
     height: 5em;
     width: 30vw;
 
-    background-color: rgb(111, 165, 25);
+    background-color:  rgba(162, 163, 132, 0.171);
 
     border-radius: 1em;
+    box-shadow: inset 0px 1px 2px 1px black;
 
     margin: 2em;
 
@@ -30,10 +31,8 @@
 }
 
 .description {
-    height: 5em;
-    width: 30vw;
+ 
 
-    background-color: rgb(163, 192, 116);
 
     border-radius: 1em;
 

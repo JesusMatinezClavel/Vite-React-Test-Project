@@ -1,8 +1,8 @@
 .headerDesign {
-    height: 15vh;
+    height: 10vh;
     width: 100vw;
 
-    background-color: rgb(211, 27, 196);
+    background-color: rgb(147, 93, 172);
 
     display: flex;
     justify-content:space-around;

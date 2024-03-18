@@ -1,29 +1,28 @@
 .linkDesign {
-    height: 4em;
-    width: 6em;
+    height: 2em;
+    width: 5em;
 
-    background-color: aqua;
-    color:black;
+    margin: .1em;
+
+    color: black;
     font-weight: bold;
 
-    box-shadow:1px 3px 6px 1px rgb(82, 82, 82) ;
+    text-shadow: .3em .3em .2em rgba(80, 80, 80, 0.356);
 
-    border-radius: 1em;
+    border-radius: .4em;
 
-    display:inherit;
+    display: inherit;
     justify-content: center;
     align-items: inherit;
 
-    transition:0.5s;
-}
-
-.linkDesign:hover {
-
+    transform: translateY(1.3em);
     transition: 0.5s;
-    transform: translateY(-.2em);
 
-    background-color: rgb(0, 255, 200);
+    &:hover {
+        cursor: pointer;
+        transition: 0.5s;
+        transform: translateY(.9em);
 
-
-    box-shadow:0px 1px 4px .6px rgb(82, 82, 82) ;
+        text-shadow: .3em .76em .2em rgba(80, 80, 80, 0.144);
+    }
 }

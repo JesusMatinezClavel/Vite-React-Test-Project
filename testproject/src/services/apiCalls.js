@@ -1,21 +1,34 @@
 // const root = 'https://rickandmortyapi.com/api/'
-const root = 'https://socialnetwork-dev-stbs.2.ie-1.fl0.io/api/'
+const root = "https://socialnetwork-dev-ntsh.2.ie-1.fl0.io/api/"
 
 export const getCharacters = async () => {
 
-    const response = await fetch(
-        `${root}character`
-    )
+  const response = await fetch(
+    `${root}character`
+  )
 
-    const data = await response.json()
+  const data = await response.json()
 
-    return data.results;
+  return data.results;
 }
 
 export const loginMe = async (credentials) => {
- 
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  };
+  try {
     const response = await fetch(`${root}auth/login`, options)
     const data = await response.json()
 
     return data
+  } catch (error) {
+    return data.message
+  }
+
 }
+
+
