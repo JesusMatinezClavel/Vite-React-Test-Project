@@ -1,16 +1,20 @@
 .inputDesign {
-  height: 2em;
+  height: 1.5em;
   width: 15em;
 
   border: .1em solid black;
   border-radius: .4em;
-  margin: .7em;
+  margin: .2em;
   transition: .1s;
 
 
   box-shadow: .3em .3em .2em rgba(80, 80, 80, 0.356);
 }
 
-.credentialsError{
-  color:rgb(153, 0, 0)
+.textError {
+  width: 15em;
+  color: rgb(153, 0, 0);
+  height:.5em;
+  text-align: center;
+  margin-top: -.2em;
 }

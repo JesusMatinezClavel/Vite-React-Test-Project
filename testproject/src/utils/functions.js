@@ -1,8 +1,6 @@
 export const validate = (type, value) => {
     switch (type) {
         case "nickName":
-        case "firsName":
-        case "lastName":
         case "name":
         case "surname":
         case "nick":
@@ -10,11 +8,14 @@ export const validate = (type, value) => {
         case "apellido":
         case "apellidos":
         case "mote":
-            if (value.length < 3) {
-                return 'name has to have 3 characters minimum!'
+            if (!value){
+                return 'You need a nickname!'
+            }
+            if (value.length < 2) {
+                return 'name has to have 2 characters minimum!'
             }
 
-            return "";
+                return "";
 
         case "email":
         case "mail":
@@ -29,13 +30,14 @@ export const validate = (type, value) => {
             return "";
 
         case "password":
+        case "passwordBody":
         case "pwd":
         case "contraseña":
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,14}$/;
-            if(passwordRegex.test(value)){
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,10}$/
+            if (passwordRegex.test(value)) {
                 return 'Password needs at leaste one lower-case, one upper-case and one number'
             }
-            if(value<6||value>10){
+            if (value < 6 || value > 10) {
                 return 'Password needs to be between 6 - 10 characters'
             }
 

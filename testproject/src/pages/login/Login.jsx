@@ -78,7 +78,7 @@ export const Login = () => {
                 functionChange={(e) => inputHandler(e)}
                 functionBlur={(e) => checkError(e)}
             />
-            <div className="credentialsError">{credentialsError.emailError}</div>
+            <div className="textError">{credentialsError.emailError}</div>
             <CustomInput
                 className={"inputDesign"}
                 type={'password'}
@@ -92,7 +92,7 @@ export const Login = () => {
             <div className="credentialsError">{credentialsError.passwordError}</div>
 
             <div className="inputDesign loginButton" onClick={logMe}>Log In!</div>
-            <div className="credentialsError">{errorMsg}</div>
+            <div className="textError">{errorMsg}</div>
         </div >
     )
 }

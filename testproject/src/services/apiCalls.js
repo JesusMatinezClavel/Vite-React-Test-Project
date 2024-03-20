@@ -31,4 +31,22 @@ export const loginMe = async (credentials) => {
 
 }
 
+export const registerMe = async (registerData) => {
+  const options = {
+    method:"POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(registerData)
+  }
+  try {
+    const response = await fetch(`${root}auth/register`, options)
+    const data = await response.json()
+
+    return data    
+  } catch (error) {
+    return data.message
+  }
+}
+
 
