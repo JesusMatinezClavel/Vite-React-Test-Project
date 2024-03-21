@@ -9,6 +9,18 @@
     align-items: center;
 }
 
+.homeBody {
+    height: 80vh;
+    width: 100vw;
+
+    background-color: bisque;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
 .menu{
     display: flex;
     flex-direction: row;

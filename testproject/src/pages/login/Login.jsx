@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import { CustomInput } from "../../common/customInput/customInput";
+import { CustomButton } from "../../common/customButton/customButton";
 import './Login.css'
 import { loginMe } from "../../services/apiCalls";
 import { validate } from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 
+const userToken = JSON.parse(localStorage.getItem("passport"))
 
 export const Login = () => {
 
     const navigate = useNavigate()
+
+    const [storageToken, setStorageToken]=useState(userToken?.token)
 
     const [credentials, setCredentials] = useState({
         email: "",
@@ -22,6 +26,12 @@ export const Login = () => {
     })
 
     const [errorMsg, setErrorMsg] = useState("")
+
+    useEffect(()=>{
+        if(storageToken){
+            navigate('/')
+        }
+    },[storageToken])
 
     const inputHandler = (e) => {
         setCredentials((prevState) => ({
@@ -108,7 +118,7 @@ export const Login = () => {
                 />
                 <div className="textError">{credentialsError.passwordError}</div>
             </div>
-            <div className="inputDesign loginButton" onClick={logMe}>Log In!</div>
+            <CustomButton onClickMethod={logMe}>Log in!</CustomButton>
             <div className="textError">{errorMsg}</div>
         </div >
     )

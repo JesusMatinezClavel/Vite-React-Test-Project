@@ -1,26 +1,25 @@
 import { CustomLink } from '../customLink/customLink'
 import './header.css'
 
+const userToken = JSON.parse(localStorage.getItem("passport"))
+
 export const Header = () => {
-    const token = true
+    console.log(userToken);
     return (
         <div className="headerDesign">
             <CustomLink title={"home"} destination={"/"} />
             {
-                token
+                userToken
                     ? (
                         <div className='menu'>
-                        <CustomLink title={"apitest"} destination={"/apitest"} />
-                        <CustomLink title={"counters"} destination={"/counters"} />
-                        <CustomLink title={"login"} destination={"/login"} />
-                        <CustomLink title={"register"} destination={"/register"} />
+                            <CustomLink title={"login"} destination={"/login"} />
+                            <CustomLink title={"register"} destination={"/register"} />
                         </div>
                     )
                     : (
                         <div className="menu">
-                        <CustomLink title={"apitest"} destination={"/apitest"} />,
-                        <CustomLink title={"counters"} destination={"/counters"} />,
-                        <CustomLink title={"logout"} destination={"/home"} />
+                            <CustomLink title={"Log Out"} destination={"/"} />
+                            <CustomLink title={"Profile"} destination={"users/profile"} />
                         </div>
                     )
             }

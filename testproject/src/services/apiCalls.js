@@ -49,4 +49,24 @@ export const registerMe = async (registerData) => {
   }
 }
 
+export const getProfile = async (userData)=>{
+  const options = {
+    method:"GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  }
+  console.log(options.headers);
+  try {
+    const response = await fetch(`${root}users/profile`,options)
+    const data = await fetch(response)
+
+    return data
+    
+  } catch (error) {
+    return data.message
+  }
+}
+
 
