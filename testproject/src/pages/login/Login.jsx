@@ -4,6 +4,7 @@ import './Login.css'
 import { loginMe } from "../../services/apiCalls";
 import { validate } from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
+import { decodeToken } from "react-jwt";
 
 
 export const Login = () => {
@@ -58,6 +59,17 @@ export const Login = () => {
             const fetched = await loginMe(credentials)
             setErrorMsg(fetched.message)
 
+            const token = fetched.data[0]
+
+            const decodedToken = decodeToken(token)
+
+            const passport = {
+                token,
+                decodedToken
+            }
+
+            localStorage.setItem("passport", JSON.stringify(passport))
+
             setTimeout(() => {
                 navigate("/")
             }, 1200)
@@ -68,29 +80,34 @@ export const Login = () => {
 
     return (
         < div className="loginDesign" >
-            <CustomInput
-                className={"inputDesign"}
-                type={'email'}
-                name={'email'}
-                value={credentials.email || ""}
-                placeholder={'email'}
-                functionClick={(e) => backError(e)}
-                functionChange={(e) => inputHandler(e)}
-                functionBlur={(e) => checkError(e)}
-            />
-            <div className="textError">{credentialsError.emailError}</div>
-            <CustomInput
-                className={"inputDesign"}
-                type={'password'}
-                name={'password'}
-                value={credentials.password || ""}
-                placeholder={'password'}
-                functionClick={(e) => backError(e)}
-                functionChange={(e) => inputHandler(e)}
-                functionBlur={(e) => checkError(e)}
-            />
-            <div className="credentialsError">{credentialsError.passwordError}</div>
-
+            <div className="areaInputError">
+                <div className="textError"></div>
+                <CustomInput
+                    className={"inputDesign"}
+                    type={'email'}
+                    name={'email'}
+                    value={credentials.email || ""}
+                    placeholder={'email'}
+                    functionClick={(e) => backError(e)}
+                    functionChange={(e) => inputHandler(e)}
+                    functionBlur={(e) => checkError(e)}
+                />
+                <div className="textError">{credentialsError.emailError}</div>
+            </div>
+            <div className="areaInputError">
+                <div className="textError"></div>
+                <CustomInput
+                    className={"inputDesign"}
+                    type={'password'}
+                    name={'password'}
+                    value={credentials.password || ""}
+                    placeholder={'password'}
+                    functionClick={(e) => backError(e)}
+                    functionChange={(e) => inputHandler(e)}
+                    functionBlur={(e) => checkError(e)}
+                />
+                <div className="textError">{credentialsError.passwordError}</div>
+            </div>
             <div className="inputDesign loginButton" onClick={logMe}>Log In!</div>
             <div className="textError">{errorMsg}</div>
         </div >

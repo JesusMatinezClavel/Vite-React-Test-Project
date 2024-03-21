@@ -62,7 +62,7 @@ export const Register = () => {
                 }
             }
             const fetched = await registerMe(registerData)
-            console.log(fetched.message);
+            setRegisterError(fetched.message)
         } catch (error) {
             setRegisterError(error.message)
         }
@@ -72,6 +72,7 @@ export const Register = () => {
     return (
         <div className="registerDesign">
             <div className="inputGrid">
+                {/* first name */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}
@@ -85,6 +86,7 @@ export const Register = () => {
                     />
                     <div className="textError">{registerDataError.firstNameError}</div>
                 </div>
+                {/* last name */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}
@@ -98,6 +100,7 @@ export const Register = () => {
                     />
                     <div className="textError">{registerDataError.lastNameError}</div>
                 </div>
+                {/* nickname */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}
@@ -111,10 +114,11 @@ export const Register = () => {
                     />
                     <div className="textError">{registerDataError.nickNameError}</div>
                 </div>
+                {/* profile img */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}
-                        type={"text"}
+                        type={"file"}
                         name={"profileImg"}
                         value={registerData.profileImg || ""}
                         placeholder={"input profileImg"}
@@ -124,23 +128,11 @@ export const Register = () => {
                     />
                     <div className="textError">{registerDataError.profileImgError}</div>
                 </div>
+                {/* bio */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}
-                        type={"text"}
-                        name={"profileImg"}
-                        value={registerData.profileImg || ""}
-                        placeholder={"input profileImg"}
-                        functionClick={(e) => backError(e)}
-                        functionChange={(e) => inputHandler(e)}
-                        functionBlur={(e) => checkError(e)}
-                    />
-                    <div className="textError">{registerDataError.profileImgError}</div>
-                </div>
-                <div className="inputArea">
-                    <CustomInput
-                        className={"inputDesign"}
-                        type={"text"}
+                        type={"textarea"}
                         name={"bio"}
                         value={registerData.bio || ""}
                         placeholder={"input bio"}
@@ -150,6 +142,7 @@ export const Register = () => {
                     />
                     <div className="textError">{registerDataError.bioError}</div>
                 </div>
+                {/* birthdate */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}
@@ -163,6 +156,7 @@ export const Register = () => {
                     />
                     <div className="textError">{registerDataError.birthDateError}</div>
                 </div>
+                {/* email */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}
@@ -176,6 +170,7 @@ export const Register = () => {
                     />
                     <div className="textError">{registerDataError.emailError}</div>
                 </div>
+                {/* password */}
                 <div className="inputArea">
                     <CustomInput
                         className={"inputDesign"}

@@ -33,9 +33,9 @@ export const validate = (type, value) => {
         case "passwordBody":
         case "pwd":
         case "contraseña":
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{6,10}$/
-            if (passwordRegex.test(value)) {
-                return 'Password needs at leaste one lower-case, one upper-case and one number'
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,10}$/;
+            if (!passwordRegex.test(value)) {
+                return 'Password needs at least: one lower-case, one upper-case and one number'
             }
             if (value < 6 || value > 10) {
                 return 'Password needs to be between 6 - 10 characters'
